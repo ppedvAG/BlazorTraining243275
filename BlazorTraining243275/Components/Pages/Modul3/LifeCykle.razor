@@ -1,0 +1,27 @@
+﻿@page "/lc"
+<h3>LifeCycle</h3>
+<button @onclick="click">clcik</button>
+@code {
+    void click()
+    {
+
+    }
+    protected override void OnInitialized()
+    {
+        //    <Routes @rendermode="@(new InteractiveServerRenderMode(prerender:false))" />
+        //nur einmal aufrufen
+
+    }
+    protected override Task OnInitializedAsync()
+    {
+        return base.OnInitializedAsync();
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        
+    }
+    protected override void OnParametersSet()
+    {
+      
+    }
+}

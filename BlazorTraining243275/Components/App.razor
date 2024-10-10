@@ -13,7 +13,8 @@
 </head>
 
 <body>
-    <Routes @rendermode="InteractiveServer" />
+    <Routes @rendermode="@(new InteractiveServerRenderMode(prerender:false))" />
+  @*   <Routes @rendermode="InteractiveServer" /> *@
     <script src="_framework/blazor.web.js"></script>
 </body>
 
