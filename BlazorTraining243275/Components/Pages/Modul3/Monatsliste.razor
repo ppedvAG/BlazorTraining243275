@@ -1,0 +1,27 @@
+﻿@page "/monate"
+<h3>Monatsliste</h3>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6">ausgewählt @DateTime.Now.AddMonths(SelectedMonat).ToString("MMMM")</div>
+        <div class="col-12 col-md-6">
+
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action active">Monat                </li>
+                @for (int i = 0; i < 12; i++)
+                {
+                    int m = i;
+                    <li @onclick="(_)=>Select(_,m)"
+                        class='list-group-item list-group-item-action @(SelectedMonat==m?"list-group-item-primary":"")'>@DateTime.Now.AddMonths(i).ToString("MMMM")</li>
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+@code {
+    int SelectedMonat;
+    void Select(MouseEventArgs args, int m) //relevant ()=> Lambda
+    {
+        SelectedMonat = m;
+    }
+}
