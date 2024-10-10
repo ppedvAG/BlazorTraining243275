@@ -1,0 +1,51 @@
+﻿@page "/todov"
+@inject IHttpClientFactory http
+<h3>ToDoView</h3>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col">
+
+            <ul class="list-group">
+                <li class="list-group-item list-group-item-action active">Tod Items</li>
+                @if (ToDoObjekt == null)
+                {
+                    <li>lade...</li>
+                }
+                else
+                {
+
+                    <Virtualize Context="item" Items="@ToDoObjekt.todos" OverscanCount="5" ItemSize="45">
+                        <ItemContent>
+                            <li class='list-group-item'>@item.todo</li>
+                        </ItemContent>
+                      <Placeholder></Placeholder>
+                      <EmptyContent></EmptyContent>
+                    </Virtualize>
+                @*     @foreach (var item in ToDoObjekt.todos)
+                    {
+
+                        <li class='list-group-item'>@item.todo</li>
+                    } *@
+                }
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+@code {
+    public ToDoModel ToDoObjekt { get; set; }
+    string Eingabe = "";
+    protected override async Task OnInitializedAsync()
+    {
+        using (var client = http.CreateClient())
+        {
+            ToDoObjekt = await client.GetFromJsonAsync<ToDoModel>("https://dummyjson.com/todos?limit=300");
+        }
+
+    }
+
+}
