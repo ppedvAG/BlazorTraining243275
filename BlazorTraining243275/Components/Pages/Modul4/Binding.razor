@@ -1,0 +1,16 @@
+﻿@page "/binding"
+<h3>Binding</h3>
+
+
+<input @bind="Eingabe" @bind:event="oninput" />
+<input @oninput="(_)=>show(_)" value="@Eingabe" />
+
+@Eingabe
+
+@code {
+    string Eingabe;
+    void show(ChangeEventArgs args)
+    {
+        Eingabe = args.Value.ToString();
+    }
+}
