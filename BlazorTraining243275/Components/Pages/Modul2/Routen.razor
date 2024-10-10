@@ -1,0 +1,8 @@
+﻿@page "/test"
+@page "/test/{text}"
+<h3>Routen @text</h3>
+
+@code {
+    [Parameter]
+    public string text { get; set; }
+}

@@ -1,0 +1,19 @@
+﻿@page "/nava"
+@page "/navb"
+@inject NavigationManager navman
+<h3>Navi</h3>
+<a href="/nava">a</a><br />
+<a href="/navb">b</a><br />
+<a href="/nava?id=1">a</a>
+<button class="btn btn-outline-primary" @onclick="register">regsiter</button>
+@code {
+    void register()
+    {
+        navman.LocationChanged += UrlChanged;
+
+    }
+    void UrlChanged(object sender,LocationChangedEventArgs args)
+    {
+        
+    }
+}
