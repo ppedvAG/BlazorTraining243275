@@ -1,0 +1,25 @@
+﻿@page "/element"
+<h3>ElementAttr</h3>
+<input @bind ="Eingabe" @onkeydown="pruefe" />
+<button class="btn " @onclick="klick">klick</button>
+<hr />
+<input @ref="hannes"/>
+@code {
+    string Eingabe;
+    ElementReference hannes;
+    void klick()
+    {
+
+
+    }
+
+    void pruefe(KeyboardEventArgs args)
+    {
+        if (args.Key=="G")
+        {
+            Eingabe = "keine G";
+            hannes.FocusAsync();
+        }
+
+    }
+}
