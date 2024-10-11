@@ -1,0 +1,15 @@
+﻿@page "/js3"
+@inject RazorClassLibrary1.ExampleJsInterop JsInterop
+<h3>Js2</h3>
+
+<button @onclick="click">click</button>
+
+@eingabe
+@code {
+    string eingabe;
+
+    async Task click()
+    {
+        eingabe = await JsInterop.Prompt("Lib Prompt");
+    }
+}
