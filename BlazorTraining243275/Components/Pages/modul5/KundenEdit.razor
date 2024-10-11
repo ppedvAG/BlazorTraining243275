@@ -1,0 +1,19 @@
+﻿@page "/kundenedit/{id}"
+@inject Models.NorthwindContext VM
+<h3>KundenEdit</h3>
+<form>
+    <input @bind="kunde.CompanyName" />
+</form>
+@code {
+    [Parameter]
+    public string id { get; set; }
+    Models.Customer kunde;
+
+
+    protected override void OnInitialized()
+    {
+        kunde = VM.Customers.Find(id);
+   
+    }
+
+}
