@@ -1,0 +1,17 @@
+﻿Paket maanager Console
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Design
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+Server Explorer - Eigenschaft Datenbank 
+Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Encrypt=True
+
+Paket maanager Console
+
+Scaffold-dbcontext "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Encrypt=True" Microsoft.EntityFrameworkCore.SqlServer -outputdir Models
+
+appsettings.json
+{
+  "ConnectionStrings": { "northwind": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Northwind;Integrated Security=True;Encrypt=True" },
+
+  program.cs
