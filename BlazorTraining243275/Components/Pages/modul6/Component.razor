@@ -1,0 +1,32 @@
+﻿<h3>@Titel</h3>
+<div @attributes="@Alles">
+    gelb @MyProperty
+    @ItemContent
+</div>
+<style>
+    h4
+    {}
+</style>
+@PlaceHolder
+@code {
+    [Parameter]
+    [EditorRequired]
+    public string Titel { get; set; }
+
+    [Parameter(CaptureUnmatchedValues = true)]
+    public Dictionary<string, object> Alles { get; set; }
+    [CascadingParameter]
+    public int MyProperty { get; set; }
+    [CascadingParameter]
+    public string StringProperty { get; set; }
+
+    // [Parameter]
+    // public RenderFragment ChildContent { get; set; }
+    [Parameter]
+    public RenderFragment ItemContent { get; set; }
+
+    [Parameter]
+    public RenderFragment PlaceHolder { get; set; }
+
+}
+

@@ -1,0 +1,42 @@
+﻿@page "/uc"
+<h3>UseComponent</h3>
+<CascadingValue Value="@("42")">
+    <CascadingValue Value="42">
+        <Component Titel="Hallo Welt" style="background-color:yellow;" Hannes="Hannes"></Component>
+    </CascadingValue>
+</CascadingValue>
+
+<Component Titel="Servus" style="background-color:orange;" Hannes="Hannes" @ref="Comp1">
+  
+    <ItemContent>
+        <div class="container">
+            <div class=" row">
+                <label class="col-sm-2 col-form-label">Geb Dat</label>
+                <div class="col-sm-10">
+
+                    <input class="form-control" />
+
+                </div>
+            </div>
+
+        </div>
+    </ItemContent>
+    <PlaceHolder>
+
+
+    </PlaceHolder>
+</Component>
+
+
+@code {
+    Component Comp1;
+    protected override void OnInitialized()
+    {
+       
+    }
+    protected override void OnAfterRender(bool firstRender)
+    {
+        Comp1.Titel = "Hannes OnInitialized";
+    }
+
+}
