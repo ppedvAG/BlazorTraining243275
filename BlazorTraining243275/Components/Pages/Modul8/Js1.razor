@@ -1,0 +1,17 @@
+﻿@page "/js"
+@inject IJSRuntime jsruntime
+
+<h3>Js1</h3>
+<button @onclick="click">click</button>
+@eingabe
+@code {
+    string eingabe;
+    async Task click()
+    {
+       // jsruntime.InvokeVoidAsync("alert", "Hallo Welt");
+       // jsruntime.InvokeVoidAsync("ppedv", "Hallo Welt");
+       //eingabe=await jsruntime.InvokeAsync<string>("prompt", "bitte eingeben"); //Wichtig Task als Retunr Wert
+       //document.title="titel"
+        jsruntime.InvokeVoidAsync("eval", "document.title='ppedv Website'");
+    }
+}
