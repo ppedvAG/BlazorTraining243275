@@ -1,11 +1,12 @@
 using BlazorTraining243275.Components;
-
+using BlazorTraining243275.Components.Pages.Modul4;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 builder.Services.AddHttpClient();
+builder.Services.AddSingleton<ChatVM>();
 
 var app = builder.Build();
 
